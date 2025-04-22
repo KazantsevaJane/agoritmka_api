@@ -1,0 +1,1493 @@
+openapi: 3.0.3
+info:
+  title: CRUD API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api
+paths:
+  /users:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created
+ 
+  /users/{id}:
+    get:
+      summary: Get user by ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: A user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      summary: Update user by ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User updated
+    delete:
+      summary: Delete user by ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: User deleted
+ 
+  /students:
+    get:
+      summary: Get all students
+      responses:
+        '200':
+          description: A list of students
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+    post:
+      summary: Create a new student
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '201':
+          description: Student created
+ 
+  /students/{user_id}:
+    get:
+      summary: Get student by user_id
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: A student
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+    put:
+      summary: Update student by user_id
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Student updated
+    delete:
+      summary: Delete student by user_id
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: Student deleted
+ 
+  /customers:
+    get:
+      summary: Get all customers
+      responses:
+        '200':
+          description: A list of customers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+    post:
+      summary: Create a new customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '201':
+          description: Customer created
+ 
+  /customers/{user_id}:
+    get:
+      summary: Get customer by user_id
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: A customer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+    put:
+      summary: Update customer by user_id
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Customer updated
+    delete:
+      summary: Delete customer by user_id
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: Customer deleted
+  /orders:
+    get:
+      summary: Get all orders
+      responses:
+        '200':
+          description: A list of orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+    post:
+      summary: Create a new order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '201':
+          description: Order created
+ 
+  /orders/{id}:
+    get:
+      summary: Get order by ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: An order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+    put:
+      summary: Update order by ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: Order updated
+    delete:
+      summary: Delete order by ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: Order deleted
+ 
+  /skills:
+    get:
+      summary: Get all skills
+      responses:
+        '200':
+          description: List of skills
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Skill'
+    post:
+      summary: Create a skill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Skill'
+      responses:
+        '201':
+          description: Skill created
+ 
+  /skills/{id}:
+    get:
+      summary: Get a skill by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Skill data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Skill'
+    put:
+      summary: Update a skill
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Skill'
+      responses:
+        '200':
+          description: Skill updated
+    delete:
+      summary: Delete a skill
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Skill deleted
+  /roles:
+    get:
+      summary: Get all roles
+      responses:
+        '200':
+          description: List of roles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+    post:
+      summary: Create a role
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Role'
+      responses:
+        '201':
+          description: Role created
+ 
+  /roles/{id}:
+    get:
+      summary: Get role by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Role data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+    put:
+      summary: Update role
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Role'
+      responses:
+        '200':
+          description: Role updated
+    delete:
+      summary: Delete role
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Role deleted
+ 
+  /orders-skills:
+    get:
+      summary: Get all order-skill links
+      responses:
+        '200':
+          description: List of order-skill links
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrdersSkills'
+    post:
+      summary: Create an order-skill link
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdersSkills'
+      responses:
+        '201':
+          description: Link created
+ 
+  /orders-skills/{id}:
+    get:
+      summary: Get order-skill link by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order-skill link data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdersSkills'
+    put:
+      summary: Update order-skill link
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdersSkills'
+      responses:
+        '200':
+          description: Link updated
+    delete:
+      summary: Delete order-skill link
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Link deleted
+  /order-files:
+    get:
+      summary: Get all order files
+      responses:
+        '200':
+          description: List of order files
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderFiles'
+    post:
+      summary: Create an order file
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderFiles'
+      responses:
+        '201':
+          description: Order file created
+ 
+  /order-files/{id}:
+    get:
+      summary: Get order file by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order file data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderFiles'
+    put:
+      summary: Update order file
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderFiles'
+      responses:
+        '200':
+          description: Order file updated
+    delete:
+      summary: Delete order file
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Order file deleted
+  /responses:
+    get:
+      summary: Get all responses
+      responses:
+        '200':
+          description: List of responses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Response'
+    post:
+      summary: Create a response
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Response'
+      responses:
+        '201':
+          description: Response created
+ 
+  /responses/{id}:
+    get:
+      summary: Get response by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Response data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+    put:
+      summary: Update response
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Response'
+      responses:
+        '200':
+          description: Response updated
+    delete:
+      summary: Delete response
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Response deleted
+ 
+  /response-statuses:
+    get:
+      summary: Get all response statuses
+      responses:
+        '200':
+          description: List of response statuses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResponseStatus'
+    post:
+      summary: Create a response status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResponseStatus'
+      responses:
+        '201':
+          description: Response status created
+ 
+  /response-statuses/{id}:
+    get:
+      summary: Get response status by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Response status data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+    put:
+      summary: Update response status
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResponseStatus'
+      responses:
+        '200':
+          description: Response status updated
+    delete:
+      summary: Delete response status
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Response status deleted
+  /user-skills:
+    get:
+      summary: Get all user skills
+      responses:
+        '200':
+          description: List of user skills
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserSkills'
+    post:
+      summary: Create a user skill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSkills'
+      responses:
+        '201':
+          description: User skill created
+ 
+  /user-skills/{id}:
+    get:
+      summary: Get user skill by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User skill data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSkills'
+    put:
+      summary: Update user skill
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSkills'
+      responses:
+        '200':
+          description: User skill updated
+    delete:
+      summary: Delete user skill
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: User skill deleted
+ 
+  /conversations:
+    get:
+      summary: Get all conversations
+      responses:
+        '200':
+          description: List of conversations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Conversation'
+    post:
+      summary: Create a conversation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Conversation'
+      responses:
+        '201':
+          description: Conversation created
+ 
+  /conversations/{id}:
+    get:
+      summary: Get conversation by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Conversation data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+    put:
+      summary: Update conversation
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Conversation'
+      responses:
+        '200':
+          description: Conversation updated
+    delete:
+      summary: Delete conversation
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Conversation deleted
+  /user-conversations:
+    get:
+      summary: Get all user-conversation links
+      responses:
+        '200':
+          description: List of user-conversation links
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserConversation'
+    post:
+      summary: Create a user-conversation link
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserConversation'
+      responses:
+        '201':
+          description: Link created
+ 
+  /user-conversations/{user_id}/{conversation_id}:
+    get:
+      summary: Get user-conversation link by user and conversation ID
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: conversation_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Link data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserConversation'
+    delete:
+      summary: Delete user-conversation link
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: conversation_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Link deleted
+ 
+  /messages:
+    get:
+      summary: Get all messages
+      responses:
+        '200':
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+    post:
+      summary: Create a message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '201':
+          description: Message created
+ 
+  /messages/{id}:
+    get:
+      summary: Get message by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Message data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+    put:
+      summary: Update message
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '200':
+          description: Message updated
+    delete:
+      summary: Delete message
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Message deleted
+ 
+  /message-files:
+    get:
+      summary: Get all message files
+      responses:
+        '200':
+          description: List of message files
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageFile'
+    post:
+      summary: Create a message file
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageFile'
+      responses:
+        '201':
+          description: Message file created
+ 
+  /message-files/{id}:
+    get:
+      summary: Get message file by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Message file data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageFile'
+    put:
+      summary: Update message file
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageFile'
+      responses:
+        '200':
+          description: Message file updated
+    delete:
+      summary: Delete message file
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Message file deleted
+  /student-projects:
+    get:
+      summary: Get all student projects
+      responses:
+        '200':
+          description: List of student projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentProject'
+    post:
+      summary: Create a student project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentProject'
+      responses:
+        '201':
+          description: Project created
+ 
+  /student-projects/{id}:
+    get:
+      summary: Get student project by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Project data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentProject'
+    put:
+      summary: Update student project
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentProject'
+      responses:
+        '200':
+          description: Project updated
+    delete:
+      summary: Delete student project
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Project deleted
+ 
+  /student-projects-files:
+    get:
+      summary: Get all student project files
+      responses:
+        '200':
+          description: List of files
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentProjectFile'
+    post:
+      summary: Create a student project file
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentProjectFile'
+      responses:
+        '201':
+          description: File created
+ 
+  /student-projects-files/{id}:
+    get:
+      summary: Get student project file by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: File data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentProjectFile'
+    put:
+      summary: Update student project file
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentProjectFile'
+      responses:
+        '200':
+          description: File updated
+    delete:
+      summary: Delete student project file
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: File deleted
+ 
+  /student-projects-skills:
+    get:
+      summary: Get all student project skills
+      responses:
+        '200':
+          description: List of project skills
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentProjectSkill'
+    post:
+      summary: Create a student project skill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentProjectSkill'
+      responses:
+        '201':
+          description: Project skill created
+ 
+  /student-projects-skills/{id}:
+    get:
+      summary: Get student project skill by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Project skill data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentProjectSkill'
+    put:
+      summary: Update student project skill
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentProjectSkill'
+      responses:
+        '200':
+          description: Project skill updated
+    delete:
+      summary: Delete student project skill
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Project skill deleted
+ 
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        login:
+          type: string
+        passsword:
+          type: string
+        name:
+          type: string
+        surname:
+          type: string
+        patronymic:
+          type: string
+          nullable: true
+        role_id:
+          type: string
+          format: uuid
+        photo:
+          type: string
+ 
+    Student:
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: uuid
+        date_of_birth:
+          type: string
+          format: date
+        profile_info:
+          type: string
+ 
+    Customer:
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: uuid
+        company_name:
+          type: string
+ 
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        customer_id:
+          type: integer
+        performer_id:
+          type: string
+          format: uuid
+          nullable: true
+        name:
+          type: integer
+        short_decription:
+          type: string
+        long_decription:
+          type: string
+        dificult:
+          type: integer
+        publication_date:
+          type: string
+          format: date
+        completion_date:
+          type: string
+          format: date
+ 
+    Skill:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+ 
+    OrdersSkills:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        skill_id:
+          type: string
+          format: uuid
+        order_id:
+          type: string
+          format: uuid
+ 
+    Role:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+ 
+    OrderFiles:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        order_id:
+          type: string
+          format: uuid
+        file_url:
+          type: string
+ 
+    Response:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        order_id:
+          type: string
+          format: uuid
+        student_id:
+          type: string
+          format: uuid
+        status_id:
+          type: string
+          format: uuid
+        date:
+          type: string
+          format: date
+ 
+    ResponseStatus:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+ 
+    UserSkills:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        user_id:
+          type: string
+          format: uuid
+        skill_id:
+          type: string
+          format: uuid
+ 
+    Conversation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        order_id:
+          type: string
+          format: uuid
+        name:
+          type: string
+ 
+    UserConversation:
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: uuid
+        conversation_id:
+          type: string
+          format: uuid
+ 
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        sender_id:
+          type: string
+          format: uuid
+        conversation_id:
+          type: string
+          format: uuid
+        time_date:
+          type: string
+          format: date
+        content:
+          type: string
+        is_files:
+          type: boolean
+ 
+    MessageFile:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        message_id:
+          type: string
+          format: uuid
+        file_url:
+          type: string
+    StudentProject:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        result_description:
+          type: string
+        is_individual:
+          type: boolean
+        publication_date:
+          type: string
+          format: date
+        user_id:
+          type: string
+          format: uuid
+ 
+    StudentProjectFile:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        project_id:
+          type: string
+          format: uuid
+        file_url:
+          type: string
+ 
+    StudentProjectSkill:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        project_id:
+          type: string
+          format: uuid
+        skill_id:
+          type: integer
+ 
+          format: uuid
+        company_name:
+          type: string
