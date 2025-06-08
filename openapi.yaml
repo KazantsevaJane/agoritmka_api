@@ -4,9 +4,27 @@ info:
   version: 1.0.0
 servers:
   - url: http://localhost:3000/api
+tags:
+  - name: Users
+  - name: Students
+  - name: Customers
+  - name: Orders
+  - name: Skills
+  - name: Order-skills
+  - name: Roles
+  - name: Responses
+  - name: Response-statuses
+  - name: Conversations
+  - name: Messages
+  - name: Student-projects
+  - name: Student-projects-files
+  - name: Student-projects-skills
+  - name: User-conversations
 paths:
   /users:
     get:
+      tags:
+        - Users
       summary: Get all users
       responses:
         '200':
@@ -18,6 +36,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
     post:
+      tags:
+        - Users
       summary: Create a new user
       requestBody:
         required: true
@@ -31,6 +51,8 @@ paths:
  
   /users/{id}:
     get:
+      tags:
+        - Users
       summary: Get user by ID
       parameters:
         - in: path
@@ -46,6 +68,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
     put:
+      tags:
+        - Users
       summary: Update user by ID
       parameters:
         - in: path
@@ -66,6 +90,8 @@ paths:
  
   /students:
     get:
+      tags:
+        - Students
       summary: Get all students
       responses:
         '200':
@@ -77,6 +103,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/StudentWithUser'
     post:
+      tags:
+        - Students
       summary: Create a new student
       requestBody:
         required: true
@@ -90,6 +118,8 @@ paths:
  
   /students/{user_id}:
     get:
+      tags:
+        - Students
       summary: Get student by user_id
       parameters:
         - in: path
@@ -105,6 +135,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudentWithUser'
     put:
+      tags:
+        - Students
       summary: Update student by user_id
       parameters:
         - in: path
@@ -125,6 +157,8 @@ paths:
  
   /customers:
     get:
+      tags:
+        - Customers
       summary: Get all customers
       responses:
         '200':
@@ -136,6 +170,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/CustomerWithUser'
     post:
+      tags:
+        - Customers
       summary: Create a new customer
       requestBody:
         required: true
@@ -149,6 +185,8 @@ paths:
  
   /customers/{user_id}:
     get:
+      tags:
+        - Customers
       summary: Get customer by user_id
       parameters:
         - in: path
@@ -164,6 +202,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CustomerWithUser'
     put:
+      tags:
+        - Customers
       summary: Update customer by user_id
       parameters:
         - in: path
@@ -183,6 +223,8 @@ paths:
 
   /orders:
     get:
+      tags:
+        - Orders
       summary: Get all orders
       responses:
         '200':
@@ -194,19 +236,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/Order'
     post:
+      tags:
+        - Orders
       summary: Create a new order
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Order'
+              $ref: '#/components/schemas/OrderBase'
       responses:
         '201':
           description: Order created
  
   /orders/{id}:
     get:
+      tags:
+        - Orders
       summary: Get order by ID
       parameters:
         - in: path
@@ -222,6 +268,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Order'
     put:
+      tags:
+        - Orders
       summary: Update order by ID
       parameters:
         - in: path
@@ -242,6 +290,8 @@ paths:
  
   /skills:
     get:
+      tags:
+        - Skills
       summary: Get all skills
       responses:
         '200':
@@ -253,6 +303,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Skill'
     post:
+      tags:
+        - Skills
       summary: Create a skill
       requestBody:
         required: true
@@ -266,6 +318,8 @@ paths:
  
   /skills/{id}:
     get:
+      tags:
+        - Skills
       summary: Get a skill by ID
       parameters:
         - in: path
@@ -281,6 +335,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Skill'
     put:
+      tags:
+        - Skills
       summary: Update a skill
       parameters:
         - in: path
@@ -300,6 +356,8 @@ paths:
 
   /roles:
     get:
+      tags:
+        - Roles
       summary: Get all roles
       responses:
         '200':
@@ -311,19 +369,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/Role'
     post:
+      tags:
+        - Roles
       summary: Create a role
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Role'
+              $ref: '#/components/schemas/RoleBase'
       responses:
         '201':
           description: Role created
  
   /roles/{id}:
     get:
+      tags:
+        - Roles
       summary: Get role by ID
       parameters:
         - in: path
@@ -339,6 +401,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Role'
     put:
+      tags:
+        - Roles
       summary: Update role
       parameters:
         - in: path
@@ -359,6 +423,8 @@ paths:
  
   /orders-skills:
     get:
+      tags:
+        - Order-skills
       summary: Get all order-skill links
       responses:
         '200':
@@ -370,6 +436,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/OrdersSkills'
     post:
+      tags:
+        - Order-skills
       summary: Create an order-skill link
       requestBody:
         required: true
@@ -383,6 +451,8 @@ paths:
  
   /orders-skills/{id}:
     get:
+      tags:
+        - Order-skills
       summary: Get order-skill link by ID
       parameters:
         - in: path
@@ -398,6 +468,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/OrdersSkills'
     put:
+      tags:
+        - Order-skills
       summary: Update order-skill link
       parameters:
         - in: path
@@ -417,6 +489,8 @@ paths:
 
   /order-files:
     get:
+      tags:
+        - Orders
       summary: Get all order files
       responses:
         '200':
@@ -428,6 +502,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/OrderFiles'
     post:
+      tags:
+        - Orders
       summary: Create an order file
       requestBody:
         required: true
@@ -441,6 +517,8 @@ paths:
  
   /order-files/{id}:
     get:
+      tags:
+        - Orders
       summary: Get order file by ID
       parameters:
         - in: path
@@ -456,6 +534,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/OrderFiles'
     put:
+      tags:
+        - Orders
       summary: Update order file
       parameters:
         - in: path
@@ -475,6 +555,8 @@ paths:
 
   /responses:
     get:
+      tags:
+        - Responses
       summary: Get all responses
       responses:
         '200':
@@ -486,19 +568,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/Response'
     post:
+      tags:
+        - Responses
       summary: Create a response
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Response'
+              $ref: '#/components/schemas/ResponseBase'
       responses:
         '201':
           description: Response created
  
   /responses/{id}:
     get:
+      tags:
+        - Responses
       summary: Get response by ID
       parameters:
         - in: path
@@ -514,6 +600,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Response'
     put:
+      tags:
+        - Responses
       summary: Update response
       parameters:
         - in: path
@@ -533,6 +621,8 @@ paths:
  
   /response-statuses:
     get:
+      tags:
+        - Response-statuses
       summary: Get all response statuses
       responses:
         '200':
@@ -544,19 +634,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/ResponseStatus'
     post:
+      tags:
+        - Response-statuses
       summary: Create a response status
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ResponseStatus'
+              $ref: '#/components/schemas/ResponseStatusBase'
       responses:
         '201':
           description: Response status created
  
   /response-statuses/{id}:
     get:
+      tags:
+        - Response-statuses
       summary: Get response status by ID
       parameters:
         - in: path
@@ -572,6 +666,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseStatus'
     put:
+      tags:
+        - Response-statuses
       summary: Update response status
       parameters:
         - in: path
@@ -591,6 +687,8 @@ paths:
 
   /user-skills:
     get:
+      tags:
+        - Users
       summary: Get all user skills
       responses:
         '200':
@@ -602,6 +700,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/UserSkills'
     post:
+      tags:
+        - Users
       summary: Create a user skill
       requestBody:
         required: true
@@ -615,6 +715,8 @@ paths:
  
   /user-skills/{id}:
     get:
+      tags:
+        - Users
       summary: Get user skill by ID
       parameters:
         - in: path
@@ -630,6 +732,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserSkills'
     put:
+      tags:
+        - Users
       summary: Update user skill
       parameters:
         - in: path
@@ -650,6 +754,8 @@ paths:
  
   /conversations:
     get:
+      tags:
+        - Conversations
       summary: Get all conversations
       responses:
         '200':
@@ -661,19 +767,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/Conversation'
     post:
+      tags:
+        - Conversations
       summary: Create a conversation
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Conversation'
+              $ref: '#/components/schemas/ConversationBase'
       responses:
         '201':
           description: Conversation created
  
   /conversations/{id}:
     get:
+      tags:
+        - Conversations
       summary: Get conversation by ID
       parameters:
         - in: path
@@ -689,6 +799,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Conversation'
     put:
+      tags:
+        - Conversations
       summary: Update conversation
       parameters:
         - in: path
@@ -708,6 +820,8 @@ paths:
 
   /user-conversations:
     get:
+      tags:
+        - User-conversations
       summary: Get all user-conversation links
       responses:
         '200':
@@ -719,19 +833,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/UserConversation'
     post:
+      tags:
+        - User-conversations
       summary: Create a user-conversation link
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UserConversation'
+              $ref: '#/components/schemas/UserConversationBase'
       responses:
         '201':
           description: Link created
  
   /user-conversations/{user_id}/{conversation_id}:
     get:
+      tags:
+        - User-conversations
       summary: Get user-conversation link by user and conversation ID
       parameters:
         - in: path
@@ -754,6 +872,8 @@ paths:
  
   /messages:
     get:
+      tags:
+        - Messages
       summary: Get all messages
       responses:
         '200':
@@ -765,19 +885,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/Message'
     post:
+      tags:
+        - Messages
       summary: Create a message
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Message'
+              $ref: '#/components/schemas/MessageBase'
       responses:
         '201':
           description: Message created
  
   /messages/{id}:
     get:
+      tags:
+        - Messages
       summary: Get message by ID
       parameters:
         - in: path
@@ -793,6 +917,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
     put:
+      tags:
+        - Messages
       summary: Update message
       parameters:
         - in: path
@@ -812,6 +938,8 @@ paths:
 
   /messages/conversation/{conversation_id}:
     get:
+      tags:
+        - Messages
       summary: Get all messages by conversation ID
       parameters:
         - in: path
@@ -830,6 +958,8 @@ paths:
                   $ref: '#/components/schemas/Message'
   /message-files:
     get:
+      tags:
+        - Messages
       summary: Get all message files
       responses:
         '200':
@@ -841,19 +971,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/MessageFile'
     post:
+      tags:
+        - Messages
       summary: Create a message file
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MessageFile'
+              $ref: '#/components/schemas/MessageFileBase'
       responses:
         '201':
           description: Message file created
  
   /message-files/{id}:
     get:
+      tags:
+        - Messages
       summary: Get message file by ID
       parameters:
         - in: path
@@ -869,6 +1003,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/MessageFile'
     put:
+      tags:
+        - Messages
       summary: Update message file
       parameters:
         - in: path
@@ -888,6 +1024,8 @@ paths:
 
   /student-projects:
     get:
+      tags:
+        - Student-projects
       summary: Get all student projects
       responses:
         '200':
@@ -899,19 +1037,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/StudentProject'
     post:
+      tags:
+        - Student-projects
       summary: Create a student project
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StudentProject'
+              $ref: '#/components/schemas/StudentProjectBase'
       responses:
         '201':
           description: Project created
  
   /student-projects/{id}:
     get:
+      tags:
+        - Student-projects
       summary: Get student project by ID
       parameters:
         - in: path
@@ -927,6 +1069,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudentProject'
     put:
+      tags:
+        - Student-projects
       summary: Update student project
       parameters:
         - in: path
@@ -946,6 +1090,8 @@ paths:
  
   /student-projects-files:
     get:
+      tags:
+        - Student-projects-files
       summary: Get all student project files
       responses:
         '200':
@@ -957,19 +1103,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/StudentProjectFile'
     post:
+      tags:
+        - Student-projects-files
       summary: Create a student project file
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StudentProjectFile'
+              $ref: '#/components/schemas/StudentProjectFileBase'
       responses:
         '201':
           description: File created
  
   /student-projects-files/{id}:
     get:
+      tags:
+        - Student-projects-files
       summary: Get student project file by ID
       parameters:
         - in: path
@@ -985,6 +1135,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudentProjectFile'
     put:
+      tags:
+        - Student-projects-files
       summary: Update student project file
       parameters:
         - in: path
@@ -1005,6 +1157,8 @@ paths:
  
   /student-projects-skills:
     get:
+      tags:
+        - Student-projects-skills
       summary: Get all student project skills
       responses:
         '200':
@@ -1016,19 +1170,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/StudentProjectSkill'
     post:
+      tags:
+        - Student-projects-skills
       summary: Create a student project skill
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StudentProjectSkill'
+              $ref: '#/components/schemas/StudentProjectSkillBase'
       responses:
         '201':
           description: Project skill created
  
   /student-projects-skills/{id}:
     get:
+      tags:
+        - Student-projects-skills
       summary: Get student project skill by ID
       parameters:
         - in: path
@@ -1044,6 +1202,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/StudentProjectSkill'
     put:
+      tags:
+        - Student-projects-skills
       summary: Update student project skill
       parameters:
         - in: path
@@ -1117,12 +1277,25 @@ components:
       allOf:
         - $ref: '#/components/schemas/User'
         - $ref: '#/components/schemas/StudentBase'
+        - type: object
+      properties:
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+          description: List of skills associated with the student
 
     # Схема для создания: UserBase + StudentBase
     PostStudentWithUser:
       allOf:
         - $ref: '#/components/schemas/UserBase'
         - $ref: '#/components/schemas/StudentBase'
+      properties:
+        skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSkills'
+          description: List of skills associated with the student
 
     # Базовая схема заказчика
     CustomerBase:
@@ -1154,20 +1327,26 @@ components:
             company_name:
               type: string
  
-    Order:
+    OrderBase:
       type: object
+      required:
+        - customer_id
+        - name
+        - short_decription
+        - long_decription
+        - dificult
+        - publication_date
+        - completion_date
       properties:
-        id:
+        customer_id:
           type: string
           format: uuid
-        customer_id:
-          type: integer
         performer_id:
           type: string
           format: uuid
           nullable: true
         name:
-          type: integer
+          type: string
         short_decription:
           type: string
         long_decription:
@@ -1180,7 +1359,16 @@ components:
         completion_date:
           type: string
           format: date
- 
+      
+    Order:
+      allOf:
+        - $ref: '#/components/schemas/OrderBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
     Skill:
       type: object
       properties:
@@ -1189,7 +1377,7 @@ components:
           format: uuid
         name:
           type: string
- 
+
     OrdersSkills:
       type: object
       properties:
@@ -1202,16 +1390,22 @@ components:
         order_id:
           type: string
           format: uuid
- 
-    Role:
+    RoleBase:
       type: object
+      required:
+        - name
       properties:
-        id:
-          type: string
-          format: uuid
         name:
           type: string
- 
+    Role:
+      allOf:
+        - $ref: '#/components/schemas/RoleBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
     OrderFiles:
       type: object
       properties:
@@ -1223,13 +1417,15 @@ components:
           format: uuid
         file_url:
           type: string
- 
-    Response:
+
+    ResponseBase:
       type: object
+      required:
+        - order_id
+        - student_id
+        - status_id
+        - date
       properties:
-        id:
-          type: string
-          format: uuid
         order_id:
           type: string
           format: uuid
@@ -1242,16 +1438,33 @@ components:
         date:
           type: string
           format: date
- 
-    ResponseStatus:
+
+    Response:
+      allOf:
+        - $ref: '#/components/schemas/ResponseBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
+    ResponseStatusBase:
       type: object
+      required:
+        - name
       properties:
-        id:
-          type: string
-          format: uuid
         name:
           type: string
- 
+
+    ResponseStatus:
+      allOf:
+        - $ref: '#/components/schemas/ResponseStatusBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
     UserSkills:
       type: object
       properties:
@@ -1264,21 +1477,30 @@ components:
         skill_id:
           type: string
           format: uuid
- 
-    Conversation:
+    ConversationBase:
       type: object
+      required:
+        - order_id
+        - name
       properties:
-        id:
-          type: string
-          format: uuid
         order_id:
           type: string
           format: uuid
         name:
           type: string
- 
-    UserConversation:
+    Conversation:
+      allOf:
+        - $ref: '#/components/schemas/ConversationBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+    UserConversationBase:
       type: object
+      required:
+        - user_id
+        - conversation_id
       properties:
         user_id:
           type: string
@@ -1286,13 +1508,24 @@ components:
         conversation_id:
           type: string
           format: uuid
- 
-    Message:
+    UserConversation:
+      allOf:
+        - $ref: '#/components/schemas/UserConversationBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
+    MessageBase:
       type: object
+      required:
+        - sender_id
+        - conversation_id
+        - time_date
+        - content
+        - is_files
       properties:
-        id:
-          type: string
-          format: uuid
         sender_id:
           type: string
           format: uuid
@@ -1306,24 +1539,47 @@ components:
           type: string
         is_files:
           type: boolean
- 
-    MessageFile:
+
+    Message:
+      allOf:
+        - $ref: '#/components/schemas/MessageBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
+    MessageFileBase:
       type: object
+      required:
+        - message_id
+        - file_url
       properties:
-        id:
-          type: string
-          format: uuid
         message_id:
           type: string
           format: uuid
         file_url:
           type: string
-    StudentProject:
+
+    MessageFile:
+      allOf:
+        - $ref: '#/components/schemas/MessageFileBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
+    StudentProjectBase:
       type: object
+      required:
+        - name
+        - description
+        - result_description
+        - is_individual
+        - publication_date
+        - user_id
       properties:
-        id:
-          type: string
-          format: uuid
         name:
           type: string
         description:
@@ -1338,31 +1594,58 @@ components:
         user_id:
           type: string
           format: uuid
- 
-    StudentProjectFile:
+
+    StudentProject:
+      allOf:
+        - $ref: '#/components/schemas/StudentProjectBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
+    StudentProjectFileBase:
       type: object
+      required:
+        - project_id
+        - file_url
       properties:
-        id:
-          type: string
-          format: uuid
         project_id:
           type: string
           format: uuid
         file_url:
           type: string
- 
-    StudentProjectSkill:
+
+    StudentProjectFile:
+      allOf:
+        - $ref: '#/components/schemas/StudentProjectFileBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
+    StudentProjectSkillBase:
       type: object
+      required:
+        - project_id
+        - skill_id
+        - company_name
       properties:
-        id:
-          type: string
-          format: uuid
         project_id:
           type: string
           format: uuid
         skill_id:
-          type: integer
- 
+          type: string 
           format: uuid
         company_name:
           type: string
+
+    StudentProjectSkill:
+      allOf:
+        - $ref: '#/components/schemas/StudentProjectSkillBase'
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
